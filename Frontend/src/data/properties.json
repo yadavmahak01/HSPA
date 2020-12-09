@@ -1,0 +1,39 @@
+[
+  {
+    "Id":1,
+    "Name":"Kavya House",
+    "Type":"House",
+    "Price":100000
+  },
+  {
+    "Id":2,
+    "Name":"Vats Villa",
+    "Type":"Villa",
+    "Price":500000
+  },
+  {
+    "Id":3,
+    "Name":"Dream House",
+    "Type":"Flat",
+    "Price":1000000
+  },
+  {
+    "Id":4,
+    "Name":"White House",
+    "Type":"Duplex",
+    "Price":2050000
+  },
+  {
+    "Id":5,
+    "Name":"Hello House",
+    "Type":"House",
+    "Price":900000
+  },
+  {
+    "Id":6,
+    "Name":"Vatsal Villa",
+    "Type":"Villa",
+    "Price":920000
+  }
+
+]

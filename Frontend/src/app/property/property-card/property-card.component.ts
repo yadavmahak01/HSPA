@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ɵshimHostAttribute } from '@angular/platform-browser';
 
 @Component({
@@ -10,10 +10,6 @@ import { ɵshimHostAttribute } from '@angular/platform-browser';
 
 })
 export class PropertyCardComponent{
-  Property:any={
-    "Id":1,
-    "Name":"Kavya House",
-    "Type":"House",
-    "Price":10000
-  }
+  @Input() property:any
+
 }
