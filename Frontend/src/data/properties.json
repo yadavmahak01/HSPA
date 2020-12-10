@@ -1,39 +1,51 @@
 [
   {
     "Id":1,
-    "Name":"Kavya House",
-    "Type":"House",
-    "Price":100000
+    "SellRent":2,
+    "Name":"Verna",
+    "Type":"Sedan",
+    "Price":1000000,
+    "Image":"car-1"
   },
   {
     "Id":2,
-    "Name":"Vats Villa",
-    "Type":"Villa",
-    "Price":500000
+    "SellRent":2,
+    "Name":"Swift",
+    "Type":"Sports",
+    "Price":800000,
+    "Image":"car-2"
   },
   {
     "Id":3,
-    "Name":"Dream House",
-    "Type":"Flat",
-    "Price":1000000
+    "SellRent":1,
+    "Name":"Fortuner",
+    "Type":"SUV",
+    "Price":400000,
+    "Image":"car-3"
   },
   {
     "Id":4,
-    "Name":"White House",
-    "Type":"Duplex",
-    "Price":2050000
+    "SellRent":2,
+    "Name":"XUV",
+    "Type":"SUV",
+    "Price":1500000,
+    "Image":"car-4"
   },
   {
     "Id":5,
-    "Name":"Hello House",
-    "Type":"House",
-    "Price":900000
+    "SellRent":2,
+    "Name":"I20",
+    "Type":"Sports",
+    "Price":400000,
+    "Image":"car-5"
   },
   {
     "Id":6,
-    "Name":"Vatsal Villa",
-    "Type":"Villa",
-    "Price":920000
+    "SellRent":1,
+    "Name":"Honda City",
+    "Type":"Sedan",
+    "Price":1200000,
+    "Image":"car-6"
   }
 
 ]
