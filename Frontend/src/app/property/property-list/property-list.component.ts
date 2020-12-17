@@ -11,6 +11,10 @@ import { HousingService } from 'src/app/services/housing.service';
 export class PropertyListComponent implements OnInit {
   SellRent=1;
   properties: IProperty[];
+  City='';
+  SearchCity='';
+  SortbyParam='';
+  SortDirection='asc';
   //injecting service
   constructor(private route: ActivatedRoute, private housingService:HousingService) { }
 
@@ -24,7 +28,7 @@ export class PropertyListComponent implements OnInit {
         const newProperty = JSON.parse(localStorage.getItem('newProp'));
 
         if(newProperty.SellRent == this.SellRent){
-          this.properties=[newProperty,...this.properties];
+          this.properties=[newProperty, ...this.properties];
         }
         console.log(data);
         console.log(this.route.snapshot.url.toString());
@@ -33,5 +37,19 @@ export class PropertyListComponent implements OnInit {
       }
     );
   }
+  onCityFilter(){
+    this.SearchCity=this.City;
+  }
 
+  onCityFilterClear(){
+    this.SearchCity='';
+    this.City='';
+  }
+  onSortDirection(){
+    if(this.SortDirection === 'desc'){
+      this.SortDirection='asc';
+    }else{
+      this.SortDirection='desc';
+    }
+  }
 }

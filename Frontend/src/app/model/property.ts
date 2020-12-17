@@ -6,15 +6,13 @@ export class Property implements IPropertyBase {
   Name: string;
   Type: string;
   Seats: number;
+  Color:string;
   Price: number;
   Address: string;
-  Address2?: string;
   City: string;
   Security?: number;
   Maintenance?: number;
-  Possession?: string;
   Image?: string;
   Description?: string;
-  PostedOn: string;
-  PostedBy: number;
+
 }

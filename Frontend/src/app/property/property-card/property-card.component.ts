@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ɵshimHostAttribute } from '@angular/platform-browser';
 import { IPropertyBase } from 'src/app/model/ipropertybase';
 
 

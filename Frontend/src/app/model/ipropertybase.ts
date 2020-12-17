@@ -6,5 +6,7 @@ export interface IPropertyBase {
   Price: number;
   Seats: number;
   City: string;
+  Color:string;
   Image?: string;
+  Description?:string;
 }

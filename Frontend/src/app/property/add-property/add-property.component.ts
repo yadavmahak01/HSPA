@@ -20,15 +20,20 @@ addPropertyForm: FormGroup;
 nextClicked: boolean;
 property=new Property();
 
+//Will come from masters
 propertyTypes:Array<string>=['Sedan','Sports','SUV']
+colorTypes:Array<string>=['White','Black','Grey','Red']
+cityList:any[];
+
 propertyView:IPropertyBase={
   Id: null,
   Name: '',
+  City: '',
   Price: null,
   SellRent: null,
   Type: null,
   Seats: null,
-  City: null
+  Color: null
 };
 
   constructor(private fb: FormBuilder,
@@ -41,6 +46,10 @@ propertyView:IPropertyBase={
 
   ngOnInit() {
     this.CreateAddPropertyForm();
+    this.housingService.getAllCities().subscribe(data=>{
+      this.cityList=data;
+      console.log(data);
+    })
   }
 CreateAddPropertyForm(){
   this.addPropertyForm = this.fb.group({
@@ -49,7 +58,8 @@ CreateAddPropertyForm(){
       Seats: [null, Validators.required],
       Name: [null, Validators.required],
       City: [null, Validators.required] ,
-      Type: [null, Validators.required]
+      Type: [null, Validators.required],
+      Color: [null,Validators.required]
     }),
     PriceInfo:this.fb.group({
       Price: [null, Validators.required],
@@ -62,7 +72,6 @@ CreateAddPropertyForm(){
     }),
 
     OtherInfo: this.fb.group({
-      PossessionOn: [null],
       Description: [null]
     })
     });
@@ -107,7 +116,9 @@ CreateAddPropertyForm(){
   get City() {
     return this.BasicInfo.controls.City as FormControl;
   }
-
+  get Color(){
+    return this.BasicInfo.controls.Color as FormControl;
+  }
   get Price() {
     return this.PriceInfo.controls.Price as FormControl;
   }
@@ -129,9 +140,6 @@ CreateAddPropertyForm(){
     return this.AddressInfo.controls.LandMark as FormControl;
   }
 
-  get PossessionOn() {
-    return this.OtherInfo.controls.PossessionOn as FormControl;
-  }
   get Description() {
     return this.OtherInfo.controls.Description as FormControl;
   }
@@ -139,7 +147,7 @@ CreateAddPropertyForm(){
   onBack(){
     this.router.navigate(['/']);
     }
-  onSubmit(Form:NgForm){
+   onSubmit(){
     this.nextClicked=true;
     if(this.allTabsValid){
     this.mapProperty();
@@ -167,15 +175,13 @@ CreateAddPropertyForm(){
     this.property.Seats = this.Seats.value;
     this.property.Type = this.Type.value;
     this.property.Name = this.Name.value;
+    this.property.Color=this.Color.value;
     this.property.City = this.City.value;
     this.property.Price = this.Price.value;
     this.property.Security = this.Security.value;
     this.property.Maintenance = this.Maintenance.value;
     this.property.Address = this.Address.value;
-    this.property.Address2 = this.LandMark.value;
-    this.property.Possession = this.PossessionOn.value;
     this.property.Description = this.Description.value;
-    this.property.PostedOn = new Date().toString();
   }
 
 
