@@ -9,7 +9,7 @@ namespace WebAPI.Extensions
 {
     public static class ExceptionMidllewareExtensions
     {
-        public static void ConfigureExceptionHandler(this IApplicationBuilder app,IHostEnvironment env){
+        public static void ConfigureExceptionHandler(this IApplicationBuilder app,IHostEnvironment env)
         {
             app.UseMiddleware<ExceptionMiddleware>();
         }

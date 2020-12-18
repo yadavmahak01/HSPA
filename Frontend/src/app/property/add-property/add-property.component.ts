@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {Router} from '@angular/router';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
-import { map } from 'rxjs/operators';
 import { IPropertyBase } from 'src/app/model/ipropertybase';
 import { Property } from 'src/app/model/property';
 import { AlertifyService } from 'src/app/services/alertify.service';
@@ -11,7 +10,7 @@ import { HousingService } from 'src/app/services/housing.service';
 @Component({
   selector: 'app-add-property',
   templateUrl: './add-property.component.html',
-  styleUrls: ['./add-property.component.css'],
+  styleUrls: ['./add-property.component.css']
 })
 export class AddPropertyComponent implements OnInit {
 //@ViewChild('Form') addProperty:NgForm;
@@ -21,7 +20,7 @@ nextClicked: boolean;
 property=new Property();
 
 //Will come from masters
-propertyTypes:Array<string>=['Sedan','Sports','SUV']
+carTypes:Array<string>=['Sedan','Sports','SUV']
 colorTypes:Array<string>=['White','Black','Grey','Red']
 cityList:any[];
 
@@ -40,9 +39,7 @@ propertyView:IPropertyBase={
               private router:Router,
               private housingService:HousingService,
               private alertify:AlertifyService
-    ) {
-
-   }
+    ) {}
 
   ngOnInit() {
     this.CreateAddPropertyForm();
@@ -131,7 +128,6 @@ CreateAddPropertyForm(){
     return this.PriceInfo.controls.Maintenance as FormControl;
   }
 
-
   get Address() {
     return this.AddressInfo.controls.Address as FormControl;
   }
@@ -149,14 +145,14 @@ CreateAddPropertyForm(){
     }
    onSubmit(){
     this.nextClicked=true;
-    if(this.allTabsValid){
+    if(this.allTabsValid()){
     this.mapProperty();
     this.housingService.addProperty(this.property);
-    this.alertify.success("Form submitted!");
+    this.alertify.success('Form submitted!');
     console.log(this.addPropertyForm);
 
     if(this.SellRent.value === '2'){
-      this.router.navigate(['/rent-property'])
+      this.router.navigate(['/rent-property']);
     }
     else{
       this.router.navigate(['/']);
@@ -164,7 +160,7 @@ CreateAddPropertyForm(){
 
     }
     else{
-      this.alertify.error("Check the form again!");
+      this.alertify.error('Check the form again!');
     }
   }
 
@@ -204,10 +200,10 @@ CreateAddPropertyForm(){
     }
     return true;
   }
-  selectTab(NexttabId: number,IsCurrentTabValid:boolean) {
+  selectTab(NextTabId: number,IsCurrentTabValid:boolean) {
     this.nextClicked=true;
     if(IsCurrentTabValid){
-    this.formTabs.tabs[NexttabId].active = true;
+    this.formTabs.tabs[NextTabId].active = true;
     }
   }
 }

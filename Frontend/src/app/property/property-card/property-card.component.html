@@ -13,15 +13,17 @@
     </div>
     <div class="card-body p-2">
       <div class="card-body p-1">
-        <h1 class="mb-0">  {{property.Name}} {{property.Type}} </h1>
+        <h1 class="mb-0">  {{property.Seats}} seater, {{property.Name}} </h1>
 
-        <!--in {{property.City}}
-        <span *ngIf="property.City">,</span>
-        {{property.City}}-->
+        <b>of {{property.Color}} color,</b> <br/>
+        <b>in {{property.City}}.</b>
+
+
+
 
         <hr class="mt-0 mb-2">
 
-        <h6 class="mb-0">Price: <span class="font-highlight">{{property.Price}} Rs.</span> </h6>
+        <h6 class="mb-0">Price: <span class="font-highlight">Rs. {{property.Price}}</span> </h6>
       </div> </div>
   </div>
 
